@@ -332,4 +332,1238 @@
       font-size: 0.76rem;
       font-weight: 700;
       padding: 2px 10px;
-      border-radius: 9
+      border-radius: 999px;
+    }
+
+    /* --- BOTTOM PROPORTIONAL SCENERY --- */
+    .scenery-bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 145px;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .scenery-bottom svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* --- QUIZ SCREEN --- */
+    .quiz-screen {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      animation: popIn 0.25s ease-out;
+    }
+    .quiz-screen.active { display: flex; }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .quiz-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.94);
+      padding: 10px 14px;
+      border-radius: 22px;
+      border: 3px solid #ffffff;
+      box-shadow: 0 6px 16px rgba(14, 116, 144, 0.15);
+    }
+
+    .back-btn {
+      background: #f1f5f9;
+      border: 2px solid #cbd5e1;
+      color: #334155;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 8px 14px;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 16px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 2px solid #cbd5e1;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #facc15, #22c55e);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+
+    .replay-btn {
+      background: #fef08a;
+      border: 2px solid #facc15;
+      color: #854d0e;
+      font-size: 1.2rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 0 #eab308;
+    }
+    .replay-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #eab308;
+    }
+
+    .question-box {
+      background: rgba(255, 255, 255, 0.96);
+      border: 4px solid #ffffff;
+      border-radius: 30px;
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(14, 116, 144, 0.18);
+    }
+
+    .question-prompt {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .visual-stage {
+      min-height: 120px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #f8fafc;
+      border: 3px dashed #cbd5e1;
+      border-radius: 22px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .stage-item {
+      font-size: 3.1rem;
+      animation: bounceItem 0.4s ease;
+    }
+
+    @keyframes bounceItem {
+      0% { transform: scale(0.5); }
+      70% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+
+    .seq-card {
+      width: 68px;
+      height: 76px;
+      background: #e0f2fe;
+      border: 3px solid #38bdf8;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0369a1;
+    }
+    .seq-card.blank {
+      background: #fef9c3;
+      border: 3px dashed #eab308;
+      color: #ca8a04;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .opt-btn {
+      background: #ffffff;
+      border: 3px solid #cbd5e1;
+      box-shadow: 0 6px 0 #cbd5e1;
+      border-radius: 22px;
+      padding: 16px 8px;
+      font-family: inherit;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #1e293b;
+      cursor: pointer;
+      transition: transform 0.12s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-height: 92px;
+    }
+
+    .opt-btn.arabic-opt {
+      font-family: 'Amiri', serif;
+      font-size: 2.8rem;
+      line-height: 1.35;
+      padding: 10px 8px;
+    }
+
+    .opt-btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #cbd5e1;
+    }
+
+    .opt-btn.correct {
+      background: #dcfce7;
+      border-color: #22c55e;
+      box-shadow: 0 6px 0 #16a34a;
+      color: #15803d;
+    }
+
+    .opt-btn.wrong {
+      background: #fee2e2;
+      border-color: #ef4444;
+      box-shadow: 0 6px 0 #dc2626;
+      color: #b91c1c;
+      animation: shake 0.35s;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+
+    /* --- TRACING CANVAS --- */
+    .trace-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .trace-canvas {
+      background: #fffbeb;
+      border: 4px solid #f59e0b;
+      border-radius: 24px;
+      touch-action: none;
+      cursor: crosshair;
+      box-shadow: inset 0 4px 10px rgba(245, 158, 11, 0.15);
+    }
+
+    .trace-actions {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-clear {
+      background: #f1f5f9;
+      border: 2px solid #94a3b8;
+      color: #334155;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 12px 18px;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+
+    .btn-done {
+      background: linear-gradient(180deg, #4ade80, #22c55e);
+      border: 3px solid #ffffff;
+      box-shadow: 0 5px 0 #15803d;
+      color: #ffffff;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 12px 24px;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+    .btn-done:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #15803d;
+    }
+
+    /* --- CELEBRATION MODAL --- */
+    .celebration-box {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.97);
+      border: 5px solid #facc15;
+      border-radius: 32px;
+      padding: 28px 20px;
+      box-shadow: 0 16px 36px rgba(14, 116, 144, 0.25);
+      animation: popIn 0.3s ease-out;
+    }
+    .celebration-box.active { display: flex; }
+
+    .trophy-icon {
+      font-size: 4.5rem;
+      margin-bottom: 8px;
+      animation: bounceItem 0.6s infinite alternate;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SKY DECORATIONS -->
+  <div class="sky-layer">
+    <div class="rainbow-arc"></div>
+    <div class="sun"></div>
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+
+    <!-- Hot Air Balloon -->
+    <div class="balloon-wrap">
+      <svg viewBox="0 0 64 88" width="46" height="64">
+        <path d="M32 4 C14 4 6 18 6 32 C6 46 20 56 24 62 L40 62 C44 56 58 46 58 32 C58 18 50 4 32 4 Z" fill="#f43f5e"/>
+        <path d="M32 4 C22 4 18 18 18 32 C18 46 25 56 27 62 L37 62 C39 56 46 46 46 32 C46 18 42 4 32 4 Z" fill="#facc15"/>
+        <line x1="25" y1="62" x2="26" y2="70" stroke="#78350f" stroke-width="2"/>
+        <line x1="39" y1="62" x2="38" y2="70" stroke="#78350f" stroke-width="2"/>
+        <rect x="23" y="70" width="18" height="12" rx="3" fill="#b45309"/>
+      </svg>
+    </div>
+
+    <!-- Cartoon Helicopter -->
+    <div class="helicopter-wrap">
+      <svg viewBox="0 0 130 70" width="115" height="62">
+        <!-- Tail -->
+        <rect x="12" y="31" width="38" height="8" rx="4" fill="#ef4444"/>
+        <polygon points="8,22 20,31 20,39 8,44" fill="#facc15"/>
+        <circle cx="10" cy="33" r="6" fill="none" stroke="#1e293b" stroke-width="2" stroke-dasharray="4 3"/>
+        <!-- Skids -->
+        <line x1="56" y1="52" x2="52" y2="62" stroke="#334155" stroke-width="3"/>
+        <line x1="88" y1="52" x2="92" y2="62" stroke="#334155" stroke-width="3"/>
+        <line x1="42" y1="62" x2="104" y2="62" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+        <!-- Body -->
+        <ellipse cx="72" cy="36" rx="32" ry="20" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+        <path d="M52 38 Q72 44 103 36 Q102 52 72 54 Q52 52 52 38 Z" fill="#facc15"/>
+        <!-- Cockpit Window -->
+        <path d="M74 19 C92 19 102 27 102 35 L74 35 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+        <!-- Rotor Mast & Spinning Blades -->
+        <rect x="69" y="12" width="6" height="6" fill="#334155"/>
+        <g class="rotor-blade">
+          <rect x="18" y="10" width="104" height="4" rx="2" fill="#1e293b"/>
+        </g>
+        <circle cx="72" cy="12" r="3.5" fill="#facc15"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <div class="app-shell">
+    <!-- HEADER -->
+    <header class="header-card" id="mainHeader">
+      <button class="mascot-btn" onclick="playWelcome(true)" aria-label="Sapaan Kak Owi">
+        <!-- Kak Owi Owl Mascot -->
+        <svg viewBox="0 0 80 80" width="56" height="56">
+          <circle cx="40" cy="44" r="28" fill="#92400e"/>
+          <ellipse cx="40" cy="50" rx="18" ry="16" fill="#fde68a"/>
+          <polygon points="18,22 28,28 22,36" fill="#78350f"/>
+          <polygon points="62,22 52,28 58,36" fill="#78350f"/>
+          <circle cx="30" cy="37" r="9" fill="#ffffff"/>
+          <circle cx="50" cy="37" r="9" fill="#ffffff"/>
+          <circle cx="31" cy="37" r="4.5" fill="#0f172a"/>
+          <circle cx="49" cy="37" r="4.5" fill="#0f172a"/>
+          <circle cx="32.5" cy="35.5" r="1.5" fill="#ffffff"/>
+          <circle cx="50.5" cy="35.5" r="1.5" fill="#ffffff"/>
+          <polygon points="36,44 44,44 40,51" fill="#f97316"/>
+        </svg>
+      </button>
+      <div class="title-area">
+        <h1>Belajar Seru TK A</h1>
+        <div class="speech-pill">Halo! Pilih petualanganmu yuk!</div>
+      </div>
+    </header>
+
+    <!-- MENU SCREEN -->
+    <main id="menuScreen">
+      <div class="tab-bar">
+        <button class="tab-btn active" id="tabSem1" onclick="switchTab('sem1')">
+          <span>🌞</span>
+          <span>Semester 1</span>
+        </button>
+        <button class="tab-btn" id="tabSem2" onclick="switchTab('sem2')">
+          <span>🌈</span>
+          <span>Semester 2</span>
+        </button>
+        <button class="tab-btn tab-quran" id="tabQuran" onclick="switchTab('quran')">
+          <span>🕌</span>
+          <span>Al-Qur'an</span>
+        </button>
+      </div>
+
+      <div class="topic-grid" id="topicGrid"></div>
+    </main>
+
+    <!-- QUIZ SCREEN -->
+    <section class="quiz-screen" id="quizScreen">
+      <div class="quiz-top-bar">
+        <button class="back-btn" onclick="goHome()">⬅ Menu</button>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <button class="replay-btn" onclick="replayCurrentAudio()" title="Ulangi Suara">🔊</button>
+      </div>
+
+      <div class="question-box" id="questionBox">
+        <div class="question-prompt" id="questionPrompt">Memuat soal...</div>
+        <div class="visual-stage" id="visualStage"></div>
+        <div id="interactionArea"></div>
+      </div>
+
+      <div class="celebration-box" id="celebrationBox">
+        <div class="trophy-icon">🏆</div>
+        <h2 style="font-size:1.6rem; color:#0369a1; margin-bottom:6px;">Hore! Hebat Sekali!</h2>
+        <p style="color:#475569; margin-bottom:18px; font-size:1.05rem;">Kamu berhasil menyelesaikan semua tantangan di bab ini!</p>
+        <button class="btn-done" onclick="goHome()">Pilih Bab Lain 🚀</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- PROPORTIONAL CARTOON LANDSCAPE BOTTOM -->
+  <div class="scenery-bottom">
+    <svg viewBox="0 0 800 160" preserveAspectRatio="xMidYMax slice">
+      <!-- Back Hills -->
+      <path d="M0,105 Q180,55 400,95 T800,85 L800,160 L0,160 Z" fill="#4ade80"/>
+      <path d="M0,118 Q260,85 520,112 T800,102 L800,160 L0,160 Z" fill="#22c55e"/>
+
+      <!-- Left Apple Tree -->
+      <g transform="translate(88, 28)">
+        <rect x="24" y="58" width="14" height="42" rx="4" fill="#92400e"/>
+        <path d="M31,72 L16,58" stroke="#92400e" stroke-width="5" stroke-linecap="round"/>
+        <path d="M31,68 L46,54" stroke="#92400e" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="31" cy="36" r="28" fill="#15803d"/>
+        <circle cx="15" cy="44" r="20" fill="#16a34a"/>
+        <circle cx="47" cy="44" r="20" fill="#16a34a"/>
+        <circle cx="31" cy="24" r="22" fill="#22c55e"/>
+        <!-- Apples -->
+        <circle cx="20" cy="36" r="4.5" fill="#ef4444"/>
+        <circle cx="42" cy="32" r="4.5" fill="#ef4444"/>
+        <circle cx="32" cy="48" r="4.5" fill="#ef4444"/>
+      </g>
+
+      <!-- Continuous Garden Fence -->
+      <g fill="#fef3c7" stroke="#d97706" stroke-width="1.5">
+        <rect x="165" y="108" width="185" height="6" rx="2"/>
+        <rect x="165" y="122" width="185" height="6" rx="2"/>
+        <rect x="175" y="98" width="10" height="36" rx="3"/>
+        <rect x="205" y="98" width="10" height="36" rx="3"/>
+        <rect x="235" y="98" width="10" height="36" rx="3"/>
+        <rect x="265" y="98" width="10" height="36" rx="3"/>
+        <rect x="295" y="98" width="10" height="36" rx="3"/>
+        <rect x="325" y="98" width="10" height="36" rx="3"/>
+      </g>
+
+      <!-- Center Cozy Cottage & Stepping Path -->
+      <g transform="translate(365, 42)">
+        <!-- Stepping Stones -->
+        <ellipse cx="42" cy="96" rx="14" ry="5" fill="#cbd5e1"/>
+        <ellipse cx="36" cy="108" rx="17" ry="6" fill="#e2e8f0"/>
+        <!-- Chimney -->
+        <rect x="58" y="8" width="10" height="22" rx="2" fill="#b91c1c"/>
+        <!-- House Body -->
+        <rect x="14" y="34" width="56" height="46" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <!-- Roof -->
+        <polygon points="6,36 42,8 78,36" fill="#ef4444" stroke="#b91c1c" stroke-width="2" stroke-linejoin="round"/>
+        <!-- Door & Window -->
+        <rect x="34" y="52" width="16" height="28" rx="8" fill="#b45309"/>
+        <circle cx="46" cy="67" r="2" fill="#facc15"/>
+        <rect x="19" y="45" width="11" height="11" rx="2" fill="#bae6fd" stroke="#0284c7" stroke-width="1.5"/>
+        <rect x="54" y="45" width="11" height="11" rx="2" fill="#bae6fd" stroke="#0284c7" stroke-width="1.5"/>
+      </g>
+
+      <!-- Right Fence & Tree -->
+      <g fill="#fef3c7" stroke="#d97706" stroke-width="1.5">
+        <rect x="455" y="108" width="175" height="6" rx="2"/>
+        <rect x="455" y="122" width="175" height="6" rx="2"/>
+        <rect x="468" y="98" width="10" height="36" rx="3"/>
+        <rect x="498" y="98" width="10" height="36" rx="3"/>
+        <rect x="528" y="98" width="10" height="36" rx="3"/>
+        <rect x="558" y="98" width="10" height="36" rx="3"/>
+        <rect x="588" y="98" width="10" height="36" rx="3"/>
+      </g>
+
+      <g transform="translate(650, 32)">
+        <rect x="22" y="54" width="14" height="40" rx="4" fill="#92400e"/>
+        <circle cx="29" cy="34" r="26" fill="#15803d"/>
+        <circle cx="14" cy="42" r="18" fill="#16a34a"/>
+        <circle cx="44" cy="42" r="18" fill="#16a34a"/>
+        <circle cx="29" cy="22" r="20" fill="#22c55e"/>
+        <circle cx="22" cy="32" r="4" fill="#facc15"/>
+        <circle cx="37" cy="36" r="4" fill="#facc15"/>
+      </g>
+
+      <!-- Cute Mushroom & Flowers -->
+      <g transform="translate(320, 114)">
+        <rect x="8" y="12" width="8" height="12" rx="3" fill="#fef3c7"/>
+        <path d="M2,13 C2,3 22,3 22,13 Z" fill="#ef4444"/>
+        <circle cx="8" cy="8" r="2" fill="#ffffff"/>
+        <circle cx="15" cy="9" r="2" fill="#ffffff"/>
+      </g>
+
+      <circle cx="150" cy="134" r="5" fill="#f43f5e"/>
+      <circle cx="150" cy="134" r="2" fill="#fef08a"/>
+      <circle cx="475" cy="136" r="5" fill="#facc15"/>
+      <circle cx="475" cy="136" r="2" fill="#ffffff"/>
+      <circle cx="625" cy="134" r="5" fill="#a855f7"/>
+      <circle cx="625" cy="134" r="2" fill="#fef08a"/>
+    </svg>
+  </div>
+
+  <script>
+    // --- SERVICE WORKER REGISTRATION ---
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
+    }
+
+    // --- CURRICULUM DATA ---
+    const TOPICS = [
+      // SEMESTER 1
+      {
+        id: 'bab1', sem: 'sem1', bab: 'Bab 1', title: 'Aku Istimewa', emoji: '🌟',
+        bg: 'linear-gradient(145deg, #f43f5e, #e11d48)', shadow: '#be123c',
+        types: ['emo', 'vokal', 'tulis_vokal', 'initial_b1', 'count_b1', 'emo', 'tulis_angka_1_3']
+      },
+      {
+        id: 'bab2', sem: 'sem1', bab: 'Bab 2', title: 'Rumahku Penuh Cinta', emoji: '🏡',
+        bg: 'linear-gradient(145deg, #f59e0b, #d97706)', shadow: '#b45309',
+        types: ['initial_b2', 'count_b2', 'tulis_huruf_b2', 'missing_1_3', 'initial_b2', 'tulis_angka_2_4', 'count_b2']
+      },
+      {
+        id: 'bab3', sem: 'sem1', bab: 'Bab 3', title: 'Teman yang Peduli', emoji: '🤝',
+        bg: 'linear-gradient(145deg, #10b981, #059669)', shadow: '#047857',
+        types: ['initial_b3', 'count_b3', 'missing_2_4', 'tulis_huruf_b3', 'count_b3', 'tulis_angka_3_5', 'initial_b3']
+      },
+      {
+        id: 'bab4', sem: 'sem1', bab: 'Bab 4', title: 'Ayo Bergerak', emoji: '🚗',
+        bg: 'linear-gradient(145deg, #3b82f6, #2563eb)', shadow: '#1d4ed8',
+        types: ['initial_b4', 'count_b4', 'tulis_huruf_b4', 'missing_3_5', 'count_b4', 'tulis_angka_1_5', 'initial_b4']
+      },
+      // SEMESTER 2
+      {
+        id: 'bab5', sem: 'sem2', bab: 'Bab 5', title: 'Alam Semesta Ajaib', emoji: '🌙',
+        bg: 'linear-gradient(145deg, #8b5cf6, #7c3aed)', shadow: '#6d28d9',
+        types: ['initial_b5', 'count_b5', 'tulis_huruf_b5', 'missing_1_3', 'count_b5', 'tulis_angka_2_4', 'initial_b5']
+      },
+      {
+        id: 'bab6', sem: 'sem2', bab: 'Bab 6', title: 'Tanaman Tumbuh', emoji: '🌱',
+        bg: 'linear-gradient(145deg, #22c55e, #16a34a)', shadow: '#15803d',
+        types: ['initial_b6', 'count_b6', 'tulis_huruf_b6', 'missing_2_4', 'count_b6', 'tulis_angka_3_5', 'initial_b6']
+      },
+      {
+        id: 'bab7', sem: 'sem2', bab: 'Bab 7', title: 'Kemah Ramadan', emoji: '🏮',
+        bg: 'linear-gradient(145deg, #eab308, #ca8a04)', shadow: '#a16207',
+        types: ['initial_b7', 'count_b7', 'tulis_huruf_b7', 'missing_3_5', 'count_b7', 'tulis_angka_1_5', 'initial_b7']
+      },
+      {
+        id: 'bab8', sem: 'sem2', bab: 'Bab 8', title: 'Bumi Bersih & Bahagia', emoji: '🌍',
+        bg: 'linear-gradient(145deg, #06b6d4, #0891b2)', shadow: '#0e7490',
+        types: ['initial_b8', 'count_b8', 'tulis_huruf_b8', 'missing_1_3', 'count_b8', 'tulis_angka_1_5', 'initial_b8']
+      },
+      // AL-QUR'AN
+      {
+        id: 'alq1', sem: 'quran', bab: 'Bab 1', title: 'Mengenal Huruf Hijaiyah', emoji: '🕌',
+        bg: 'linear-gradient(145deg, #10b981, #047857)', shadow: '#065f46',
+        types: ['hijaiyah_tebak', 'hijaiyah_tulis', 'hijaiyah_tebak', 'hijaiyah_tulis', 'hijaiyah_tebak', 'hijaiyah_tulis', 'hijaiyah_tebak']
+      },
+      {
+        id: 'alq2', sem: 'quran', bab: 'Bab 2', title: 'Harakat Fathah, Kasrah, Dhomah', emoji: '📖',
+        bg: 'linear-gradient(145deg, #0d9488, #0f766e)', shadow: '#115e59',
+        types: ['harakat_tanda', 'harakat_baca', 'harakat_tanda', 'harakat_baca', 'harakat_tanda', 'harakat_baca', 'harakat_baca']
+      }
+    ];
+
+    const FALLBACK_TEXT = {
+      halo: 'Halo adik-adik! Aku Kak Owi. Ayo kita belajar bersama dengan gembira!',
+      benar: 'Benar sekali! Kamu hebat!',
+      coba_lagi: 'Hampir tepat! Yuk coba pilih yang lain ya!',
+      selesai: 'Hore! Kamu berhasil menyelesaikan semua tantangan dengan luar biasa!',
+      q_hitung: 'Ada berapa gambar di atas? Ayo hitung bersama!',
+      q_vokal: 'Mana huruf vokal',
+      q_tulis_angka: 'Ayo tebalkan angka',
+      q_tulis_huruf: 'Ayo tebalkan huruf',
+      q_emo: 'Mana wajah yang sedang',
+      q_urut: 'Angka berapa yang hilang?',
+      dimulai_huruf: 'Benda apa yang dimulai dengan huruf',
+      q_hijaiyah: 'Mana huruf hijaiyah',
+      q_tulis_hijaiyah: 'Ayo tebalkan huruf hijaiyah',
+      hebat_ini_hijaiyah: 'MasyaAllah! Ini huruf hijaiyah',
+      q_harakat_tanda: 'Mana harakat',
+      q_harakat_baca: 'Bagaimana cara membaca huruf ini?',
+      benar_bacaannya: 'Benar sekali! Bacaannya'
+    };
+
+    // --- STATE & AUDIO ENGINE (ANTI-DOUBLE / ANTI-TRIPLE LOCK) ---
+    let currentTab = 'sem1';
+    let currentTopic = null;
+    let questions = [];
+    let qIndex = 0;
+    let lastSayIds = [];
+    let voiceSessionId = 0;
+    let activeAudio = null;
+    let welcomePlayed = false;
+
+    function stopVoice() {
+      voiceSessionId++;
+      if (activeAudio) {
+        try {
+          activeAudio.onended = null;
+          activeAudio.onerror = null;
+          activeAudio.pause();
+          activeAudio.currentTime = 0;
+        } catch (e) {}
+        activeAudio = null;
+      }
+      if ('speechSynthesis' in window) {
+        try { window.speechSynthesis.cancel(); } catch (e) {}
+      }
+    }
+
+    function speakTTS(text, session, onComplete) {
+      if (session !== voiceSessionId) return;
+      if (!('speechSynthesis' in window)) {
+        setTimeout(() => { if (session === voiceSessionId) onComplete(); }, 900);
+        return;
+      }
+      let finished = false;
+      const done = () => {
+        if (finished) return;
+        finished = true;
+        if (session === voiceSessionId) onComplete();
+      };
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'id-ID';
+      utter.rate = 0.92;
+      utter.pitch = 1.15;
+      utter.onend = done;
+      utter.onerror = done;
+      window.speechSynthesis.speak(utter);
+      setTimeout(done, Math.max(1600, text.length * 85));
+    }
+
+    function playSingleClip(id, session, onComplete) {
+      if (session !== voiceSessionId) return;
+      let settled = false;
+      const finish = () => {
+        if (settled) return;
+        settled = true;
+        activeAudio = null;
+        if (session === voiceSessionId) onComplete();
+      };
+
+      const tryFormat = (ext, fallbackFn) => {
+        if (settled || session !== voiceSessionId) return;
+        let failed = false;
+        const failOnce = () => {
+          if (failed || settled) return;
+          failed = true;
+          fallbackFn();
+        };
+
+        const audio = new Audio(`audio/${id}.${ext}`);
+        activeAudio = audio;
+        audio.onended = finish;
+        audio.onerror = failOnce;
+        const playPromise = audio.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(failOnce);
+        }
+      };
+
+      tryFormat('wav', () => {
+        tryFormat('mp3', () => {
+          if (settled || session !== voiceSessionId) return;
+          const label = FALLBACK_TEXT[id] || id.replace(/^(hij_|har_|syl_|num_|let_|emo_)/, '');
+          speakTTS(label, session, finish);
+        });
+      });
+    }
+
+    function saySeq(ids, onAllDone) {
+      stopVoice();
+      const session = voiceSessionId;
+      lastSayIds = [...ids];
+      let idx = 0;
+
+      const next = () => {
+        if (session !== voiceSessionId) return;
+        if (idx >= ids.length) {
+          if (onAllDone) onAllDone();
+          return;
+        }
+        const clipId = ids[idx++];
+        playSingleClip(clipId, session, () => {
+          setTimeout(next, 65);
+        });
+      };
+      next();
+    }
+
+    function sayThen(ids, nextFn) {
+      let advanced = false;
+      const go = () => {
+        if (advanced) return;
+        advanced = true;
+        stopVoice();
+        nextFn();
+      };
+      saySeq(ids, () => {
+        setTimeout(go, 320);
+      });
+    }
+
+    function replayCurrentAudio() {
+      if (lastSayIds.length > 0) {
+        saySeq(lastSayIds);
+      }
+    }
+
+    function playWelcome(force = false) {
+      if (welcomePlayed && !force) return;
+      welcomePlayed = true;
+      saySeq(['halo']);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderTopics();
+      setTimeout(() => playWelcome(false), 350);
+    });
+
+    document.addEventListener('pointerdown', () => {
+      if (!welcomePlayed && document.getElementById('menuScreen').style.display !== 'none') {
+        playWelcome(false);
+      }
+    }, { once: true });
+
+    // --- MENU RENDERING ---
+    function switchTab(tab) {
+      currentTab = tab;
+      document.getElementById('tabSem1').classList.toggle('active', tab === 'sem1');
+      document.getElementById('tabSem2').classList.toggle('active', tab === 'sem2');
+      document.getElementById('tabQuran').classList.toggle('active', tab === 'quran');
+      renderTopics();
+    }
+
+    function renderTopics() {
+      const grid = document.getElementById('topicGrid');
+      const filtered = TOPICS.filter(t => t.sem === currentTab);
+      grid.innerHTML = filtered.map(t => {
+        const stars = localStorage.getItem('stars_' + t.id) || 0;
+        return `
+          <div class="topic-card" style="background:${t.bg}; box-shadow: 0 8px 0 ${t.shadow};" onclick="startTopic('${t.id}')">
+            <span class="bab-badge">${t.bab}</span>
+            <div class="topic-emoji">${t.emoji}</div>
+            <div class="topic-title">${t.title}</div>
+            <div class="star-pill">⭐ ${stars} Bintang</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function goHome() {
+      stopVoice();
+      document.getElementById('quizScreen').classList.remove('active');
+      document.getElementById('menuScreen').style.display = 'block';
+      document.getElementById('mainHeader').style.display = 'flex';
+      renderTopics();
+    }
+
+    // --- QUESTION GENERATOR (UNIQUE PER BAB & NO DUPLICATES) ---
+    function pickUnique(pool, usedSet) {
+      const avail = pool.filter(item => !usedSet.has(item.key));
+      const source = avail.length > 0 ? avail : pool;
+      const chosen = source[Math.floor(Math.random() * source.length)];
+      usedSet.add(chosen.key);
+      return chosen;
+    }
+
+    function shuffle(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    const WORD_BANK = {
+      b1: [
+        { key: 'apel', word: 'Apel', letter: 'A', emoji: '🍎' },
+        { key: 'ikan', word: 'Ikan', letter: 'I', emoji: '🐟' },
+        { key: 'ular', word: 'Ular', letter: 'U', emoji: '🐍' },
+        { key: 'ember', word: 'Ember', letter: 'E', emoji: '🪣' }
+      ],
+      b2: [
+        { key: 'ayah', word: 'Ayah', letter: 'A', emoji: '👨' },
+        { key: 'ibu', word: 'Ibu', letter: 'I', emoji: '👩' },
+        { key: 'kucing', word: 'Kucing', letter: 'K', emoji: '🐱' },
+        { key: 'bola', word: 'Bola', letter: 'B', emoji: '⚽' }
+      ],
+      b3: [
+        { key: 'teman', word: 'Teman', letter: 'T', emoji: '🧒' },
+        { key: 'sapi', word: 'Sapi', letter: 'S', emoji: '🐄' },
+        { key: 'bebek', word: 'Bebek', letter: 'B', emoji: '🦆' },
+        { key: 'kuda', word: 'Kuda', letter: 'K', emoji: '🐴' }
+      ],
+      b4: [
+        { key: 'mobil', word: 'Mobil', letter: 'M', emoji: '🚗' },
+        { key: 'bus', word: 'Bus', letter: 'B', emoji: '🚌' },
+        { key: 'kereta', word: 'Kereta', letter: 'K', emoji: '🚂' },
+        { key: 'sepeda', word: 'Sepeda', letter: 'S', emoji: '🚲' }
+      ],
+      b5: [
+        { key: 'bintang', word: 'Bintang', letter: 'B', emoji: '⭐' },
+        { key: 'bulan', word: 'Bulan', letter: 'B', emoji: '🌙' },
+        { key: 'matahari', word: 'Matahari', letter: 'M', emoji: '☀️' },
+        { key: 'awan', word: 'Awan', letter: 'A', emoji: '☁️' }
+      ],
+      b6: [
+        { key: 'pohon', word: 'Pohon', letter: 'P', emoji: '🌳' },
+        { key: 'bunga', word: 'Bunga', letter: 'B', emoji: '🌻' },
+        { key: 'daun', word: 'Daun', letter: 'D', emoji: '🍃' },
+        { key: 'wortel', word: 'Wortel', letter: 'W', emoji: '🥕' }
+      ],
+      b7: [
+        { key: 'masjid', word: 'Masjid', letter: 'M', emoji: '🕌' },
+        { key: 'lentera', word: 'Lentera', letter: 'L', emoji: '🏮' },
+        { key: 'kurma', word: 'Kurma', letter: 'K', emoji: '🌴' },
+        { key: 'ketupat', word: 'Ketupat', letter: 'K', emoji: '🟩' }
+      ],
+      b8: [
+        { key: 'bumi', word: 'Bumi', letter: 'B', emoji: '🌍' },
+        { key: 'air', word: 'Air', letter: 'A', emoji: '💧' },
+        { key: 'sampah', word: 'Tong Sampah', letter: 'T', emoji: '🗑️' },
+        { key: 'sapu', word: 'Sapu', letter: 'S', emoji: '🧹' }
+      ]
+    };
+
+    const HIJAIYAH_LIST = [
+      { key: 'alif', char: 'ا', name: 'Alif', audio: 'hij_alif' },
+      { key: 'ba', char: 'ب', name: 'Ba', audio: 'hij_ba' },
+      { key: 'ta', char: 'ت', name: 'Ta', audio: 'hij_ta' },
+      { key: 'tsa', char: 'ث', name: 'Tsa', audio: 'hij_tsa' },
+      { key: 'jim', char: 'ج', name: 'Jim', audio: 'hij_jim' },
+      { key: 'ha', char: 'ح', name: 'Ha', audio: 'hij_ha' },
+      { key: 'kho', char: 'خ', name: 'Kho', audio: 'hij_kho' },
+      { key: 'dal', char: 'د', name: 'Dal', audio: 'hij_dal' },
+      { key: 'dzal', char: 'ذ', name: 'Dzal', audio: 'hij_dzal' },
+      { key: 'ro', char: 'ر', name: 'Ro', audio: 'hij_ro' }
+    ];
+
+    const HARAKAT_TANDA = [
+      { key: 'fathah', name: 'Fathah (garis di atas)', sample: 'بَ', audio: 'har_fathah' },
+      { key: 'kasrah', name: 'Kasrah (garis di bawah)', sample: 'بِ', audio: 'har_kasrah' },
+      { key: 'dhomah', name: 'Dhomah (tanda di atas)', sample: 'بُ', audio: 'har_dhomah' }
+    ];
+
+    const HARAKAT_BACA = [
+      { key: 'ba', glyph: 'بَ', read: 'Ba', audio: 'syl_ba', distractors: ['Bi', 'Bu'] },
+      { key: 'bi', glyph: 'بِ', read: 'Bi', audio: 'syl_bi', distractors: ['Ba', 'Bu'] },
+      { key: 'bu', glyph: 'بُ', read: 'Bu', audio: 'syl_bu', distractors: ['Ba', 'Bi'] },
+      { key: 'ta', glyph: 'تَ', read: 'Ta', audio: 'syl_ta', distractors: ['Ti', 'Tu'] },
+      { key: 'ti', glyph: 'تِ', read: 'Ti', audio: 'syl_ti', distractors: ['Ta', 'Tu'] },
+      { key: 'tu', glyph: 'تُ', read: 'Tu', audio: 'syl_tu', distractors: ['Ta', 'Ti'] },
+      { key: 'ja', glyph: 'جَ', read: 'Ja', audio: 'syl_ja', distractors: ['Ji', 'Ju'] },
+      { key: 'ji', glyph: 'جِ', read: 'Ji', audio: 'syl_ji', distractors: ['Ja', 'Ju'] },
+      { key: 'ju', glyph: 'جُ', read: 'Ju', audio: 'syl_ju', distractors: ['Ja', 'Ji'] },
+      { key: 'da', glyph: 'دَ', read: 'Da', audio: 'syl_da', distractors: ['Di', 'Du'] },
+      { key: 'di', glyph: 'دِ', read: 'Di', audio: 'syl_di', distractors: ['Da', 'Du'] },
+      { key: 'du', glyph: 'دُ', read: 'Du', audio: 'syl_du', distractors: ['Da', 'Di'] }
+    ];
+
+    function buildQuestion(type, usedKeys) {
+      if (type === 'emo') {
+        const emos = [
+          { key: 'senang', label: 'Senang', emoji: '😊', audio: 'emo_senang' },
+          { key: 'sedih', label: 'Sedih', emoji: '😢', audio: 'emo_sedih' },
+          { key: 'marah', label: 'Marah', emoji: '😠', audio: 'emo_marah' },
+          { key: 'kaget', label: 'Kaget', emoji: '😲', audio: 'emo_kaget' }
+        ];
+        const target = pickUnique(emos, usedKeys);
+        const others = shuffle(emos.filter(e => e.key !== target.key)).slice(0, 2);
+        return {
+          mode: 'choice',
+          prompt: `Mana wajah yang sedang ${target.label}?`,
+          sayIds: ['q_emo', target.audio],
+          stageHtml: `<div class="stage-item">🤔</div>`,
+          options: shuffle([target, ...others]).map(o => ({ label: o.emoji, sub: o.label, correct: o.key === target.key })),
+          winSay: ['benar']
+        };
+      }
+
+      if (type === 'vokal') {
+        const vowels = ['A', 'I', 'U', 'E', 'O'].map(v => ({ key: 'v_' + v, val: v }));
+        const target = pickUnique(vowels, usedKeys);
+        const others = shuffle(vowels.filter(v => v.val !== target.val)).slice(0, 2);
+        return {
+          mode: 'choice',
+          prompt: `Mana huruf vokal "${target.val}"?`,
+          sayIds: ['q_vokal', 'let_' + target.val.toLowerCase()],
+          stageHtml: `<div class="stage-item">🔤</div>`,
+          options: shuffle([target, ...others]).map(o => ({ label: o.val, correct: o.val === target.val })),
+          winSay: ['benar']
+        };
+      }
+
+      if (type === 'tulis_vokal') {
+        const pool = ['A', 'I', 'U', 'E', 'O'].map(v => ({ key: 'tv_' + v, val: v }));
+        const target = pickUnique(pool, usedKeys);
+        return {
+          mode: 'trace',
+          char: target.val,
+          prompt: `Ayo tebalkan huruf "${target.val}"!`,
+          sayIds: ['q_tulis_huruf', 'let_' + target.val.toLowerCase()],
+          winSay: ['benar']
+        };
+      }
+
+      if (type.startsWith('tulis_huruf_')) {
+        const map = {
+          b2: ['A', 'I', 'K', 'B'],
+          b3: ['T', 'S', 'B', 'K'],
+          b4: ['M', 'B', 'K', 'S'],
+          b5: ['B', 'M', 'A', 'U'],
+          b6: ['P', 'B', 'D', 'W'],
+          b7: ['M', 'L', 'K', 'R'],
+          b8: ['B', 'A', 'T', 'S']
+        };
+        const code = type.replace('tulis_huruf_', '');
+        const pool = (map[code] || ['A', 'B', 'C']).map(c => ({ key: 'th_' + c, val: c }));
+        const target = pickUnique(pool, usedKeys);
+        return {
+          mode: 'trace',
+          char: target.val,
+          prompt: `Ayo tebalkan huruf "${target.val}"!`,
+          sayIds: ['q_tulis_huruf', 'let_' + target.val.toLowerCase()],
+          winSay: ['benar']
+        };
+      }
+
+      if (type.startsWith('tulis_angka_')) {
+        const ranges = {
+          '1_3': [1, 2, 3],
+          '2_4': [2, 3, 4],
+          '3_5': [3, 4, 5],
+          '1_5': [1, 2, 3, 4, 5]
+        };
+        const rKey = type.replace('tulis_angka_', '');
+        const pool = (ranges[rKey] || [1, 2, 3]).map(n => ({ key: 'ta_' + n, val: String(n) }));
+        const target = pickUnique(pool, usedKeys);
+        return {
+          mode: 'trace',
+          char: target.val,
+          prompt: `Ayo tebalkan angka ${target.val}!`,
+          sayIds: ['q_tulis_angka', 'num_' + target.val],
+          winSay: ['benar']
+        };
+      }
+
+      if (type.startsWith('missing_')) {
+        const seqs = {
+          '1_3': [
+            { key: 'm13_a', show: ['1', '?', '3'], ans: '2', opts: ['2', '4', '5'] },
+            { key: 'm13_b', show: ['1', '2', '?'], ans: '3', opts: ['3', '1', '5'] }
+          ],
+          '2_4': [
+            { key: 'm24_a', show: ['2', '?', '4'], ans: '3', opts: ['3', '1', '5'] },
+            { key: 'm24_b', show: ['?', '3', '4'], ans: '2', opts: ['2', '5', '1'] }
+          ],
+          '3_5': [
+            { key: 'm35_a', show: ['3', '?', '5'], ans: '4', opts: ['4', '2', '1'] },
+            { key: 'm35_b', show: ['3', '4', '?'], ans: '5', opts: ['5', '2', '1'] }
+          ]
+        };
+        const sKey = type.replace('missing_', '');
+        const target = pickUnique(seqs[sKey] || seqs['1_3'], usedKeys);
+        return {
+          mode: 'choice',
+          prompt: 'Angka berapa yang hilang?',
+          sayIds: ['q_urut'],
+          stageHtml: target.show.map(v => `<div class="seq-card ${v === '?' ? 'blank' : ''}">${v}</div>`).join(''),
+          options: shuffle(target.opts).map(o => ({ label: o, correct: o === target.ans })),
+          winSay: ['benar']
+        };
+      }
+
+      if (type.startsWith('initial_')) {
+        const bKey = type.replace('initial_', '');
+        const bank = WORD_BANK[bKey] || WORD_BANK.b1;
+        const target = pickUnique(bank, usedKeys);
+        const others = shuffle(bank.filter(item => item.key !== target.key)).slice(0, 2);
+        return {
+          mode: 'choice',
+          prompt: `Benda apa yang dimulai dengan huruf "${target.letter}"?`,
+          sayIds: ['dimulai_huruf', 'let_' + target.letter.toLowerCase()],
+          stageHtml: `<div class="seq-card" style="font-size:2.6rem; width:82px; height:82px;">${target.letter}</div>`,
+          options: shuffle([target, ...others]).map(o => ({ label: o.emoji, sub: o.word, correct: o.key === target.key })),
+          winSay: ['benar']
+        };
+      }
+
+      if (type.startsWith('count_')) {
+        const bKey = type.replace('count_', '');
+        const bank = WORD_BANK[bKey] || WORD_BANK.b1;
+        const countPool = [1, 2, 3, 4, 5].map(n => ({ key: 'cnt_' + n, num: n }));
+        const chosenNum = pickUnique(countPool, usedKeys).num;
+        const item = bank[Math.floor(Math.random() * bank.length)];
+        const opts = shuffle([chosenNum, ...shuffle([1, 2, 3, 4, 5].filter(x => x !== chosenNum)).slice(0, 2)]);
+        return {
+          mode: 'choice',
+          prompt: `Ada berapa ${item.word.toLowerCase()} di atas?`,
+          sayIds: ['q_hitung'],
+          stageHtml: Array(chosenNum).fill(`<div class="stage-item">${item.emoji}</div>`).join(''),
+          options: opts.map(o => ({ label: String(o), correct: o === chosenNum })),
+          winSay: ['benar']
+        };
+      }
+
+      // --- AL-QUR'AN BAB 1: HURUF HIJAIYAH ---
+      if (type === 'hijaiyah_tebak') {
+        const target = pickUnique(HIJAIYAH_LIST, usedKeys);
+        const others = shuffle(HIJAIYAH_LIST.filter(h => h.key !== target.key)).slice(0, 2);
+        return {
+          mode: 'choice',
+          prompt: `Mana huruf hijaiyah "${target.name}"?`,
+          sayIds: ['q_hijaiyah', target.audio],
+          stageHtml: `<div class="stage-item">🕌</div>`,
+          options: shuffle([target, ...others]).map(o => ({
+            label: o.char,
+            arabic: true,
+            correct: o.key === target.key
+          })),
+          winSay: ['hebat_ini_hijaiyah', target.audio]
+        };
+      }
+
+      if (type === 'hijaiyah_tulis') {
+        const target = pickUnique(HIJAIYAH_LIST, usedKeys);
+        return {
+          mode: 'trace',
+          char: target.char,
+          arabic: true,
+          prompt: `Ayo tebalkan huruf hijaiyah "${target.name}"!`,
+          sayIds: ['q_tulis_hijaiyah', target.audio],
+          winSay: ['hebat_ini_hijaiyah', target.audio]
+        };
+      }
+
+      // --- AL-QUR'AN BAB 2: HARAKAT ---
+      if (type === 'harakat_tanda') {
+        const target = pickUnique(HARAKAT_TANDA, usedKeys);
+        return {
+          mode: 'choice',
+          prompt: `Mana tanda baca ${target.name}?`,
+          sayIds: ['q_harakat_tanda', target.audio],
+          stageHtml: `<div class="stage-item">📖</div>`,
+          options: shuffle(HARAKAT_TANDA).map(o => ({
+            label: o.sample,
+            arabic: true,
+            correct: o.key === target.key
+          })),
+          winSay: ['benar']
+        };
+      }
+
+      if (type === 'harakat_baca') {
+        const target = pickUnique(HARAKAT_BACA, usedKeys);
+        const opts = shuffle([target.read, ...target.distractors]);
+        return {
+          mode: 'choice',
+          prompt: 'Bagaimana cara membaca huruf ini?',
+          sayIds: ['q_harakat_baca'],
+          stageHtml: `<div class="seq-card" style="font-family:'Amiri',serif; font-size:3.6rem; width:104px; height:104px;">${target.glyph}</div>`,
+          options: opts.map(o => ({
+            label: o,
+            correct: o === target.read
+          })),
+          winSay: ['benar_bacaannya', target.audio]
+        };
+      }
+
+      return buildQuestion('vokal', usedKeys);
+    }
+
+    function startTopic(topicId) {
+      currentTopic = TOPICS.find(t => t.id === topicId);
+      if (!currentTopic) return;
+      const usedKeys = new Set();
+      questions = currentTopic.types.map(t => buildQuestion(t, usedKeys));
+      qIndex = 0;
+
+      document.getElementById('menuScreen').style.display = 'none';
+      document.getElementById('mainHeader').style.display = 'none';
+      document.getElementById('celebrationBox').classList.remove('active');
+      document.getElementById('questionBox').style.display = 'block';
+      document.getElementById('quizScreen').classList.add('active');
+
+      renderQuestion();
+    }
+
+    // --- RENDER QUESTION & INTERACTION ---
+    let questionLocked = false;
+
+    function renderQuestion() {
+      questionLocked = false;
+      const pct = Math.round((qIndex / questions.length) * 100);
+      document.getElementById('progressFill').style.width = pct + '%';
+
+      if (qIndex >= questions.length) {
+        document.getElementById('progressFill').style.width = '100%';
+        document.getElementById('questionBox').style.display = 'none';
+        document.getElementById('celebrationBox').classList.add('active');
+        const prev = Number(localStorage.getItem('stars_' + currentTopic.id) || 0);
+        localStorage.setItem('stars_' + currentTopic.id, prev + 3);
+        saySeq(['selesai']);
+        return;
+      }
+
+      const q = questions[qIndex];
+      document.getElementById('questionPrompt').textContent = q.prompt;
+      const stage = document.getElementById('visualStage');
+      const area = document.getElementById('interactionArea');
+
+      if (q.mode === 'choice') {
+        stage.style.display = 'flex';
+        stage.innerHTML = q.stageHtml;
+        area.innerHTML = `<div class="options-grid">
+          ${q.options.map((opt, idx) => `
+            <button class="opt-btn ${opt.arabic ? 'arabic-opt' : ''}" id="opt_${idx}" onclick="handleAnswer(${idx}, ${opt.correct})">
+              <span>${opt.label}</span>
+              ${opt.sub ? `<span style="font-size:0.82rem; color:#64748b; font-family:'Fredoka',sans-serif;">${opt.sub}</span>` : ''}
+            </button>
+          `).join('')}
+        </div>`;
+      } else if (q.mode === 'trace') {
+        stage.style.display = 'none';
+        area.innerHTML = `
+          <div class="trace-wrap">
+            <canvas id="traceCanvas" class="trace-canvas" width="240" height="220"></canvas>
+            <div class="trace-actions">
+              <button class="btn-clear" onclick="initTraceCanvas('${q.char}', ${Boolean(q.arabic)})">🔄 Ulangi</button>
+              <button class="btn-done" onclick="finishTrace()">Sudah Rapi! ✅</button>
+            </div>
+          </div>
+        `;
+        initTraceCanvas(q.char, Boolean(q.arabic));
+      }
+
+      setTimeout(() => {
+        saySeq(q.sayIds);
+      }, 220);
+    }
+
+    function handleAnswer(idx, isCorrect) {
+      if (questionLocked) return;
+      const btn = document.getElementById('opt_' + idx);
+      const q = questions[qIndex];
+
+      if (isCorrect) {
+        questionLocked = true;
+        btn.classList.add('correct');
+        sayThen(q.winSay, () => {
+          qIndex++;
+          renderQuestion();
+        });
+      } else {
+        btn.classList.add('wrong');
+        setTimeout(() => btn.classList.remove('wrong'), 450);
+        saySeq(['coba_lagi']);
+      }
+    }
+
+    // --- CANVAS TRACING ---
+    let hasDrawn = false;
+
+    function initTraceCanvas(char, isArabic) {
+      hasDrawn = false;
+      const canvas = document.getElementById('traceCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw dashed guide character
+      ctx.save();
+      ctx.font = isArabic ? "bold 138px 'Amiri', serif" : "bold 148px 'Fredoka', sans-serif";
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.setLineDash([7, 7]);
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = '#cbd5e1';
+      ctx.fillStyle = 'rgba(203, 213, 225, 0.25)';
+      ctx.fillText(char, canvas.width / 2, canvas.height / 2 + 6);
+      ctx.strokeText(char, canvas.width / 2, canvas.height / 2 + 6);
+      ctx.restore();
+
+      let drawing = false;
+      const getPos = (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return { x: clientX - rect.left, y: clientY - rect.top };
+      };
+
+      const startDraw = (e) => {
+        e.preventDefault();
+        drawing = true;
+        hasDrawn = true;
+        const pos = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+      };
+
+      const moveDraw = (e) => {
+        if (!drawing) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        ctx.lineWidth = 14;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = '#f97316';
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+      };
+
+      const endDraw = () => { drawing = false; };
+
+      canvas.onpointerdown = startDraw;
+      canvas.onpointermove = moveDraw;
+      canvas.onpointerup = endDraw;
+      canvas.onpointerleave = endDraw;
+    }
+
+    function finishTrace() {
+      if (questionLocked) return;
+      if (!hasDrawn) {
+        saySeq(['coba_lagi']);
+        return;
+      }
+      questionLocked = true;
+      const q = questions[qIndex];
+      sayThen(q.winSay, () => {
+        qIndex++;
+        renderQuestion();
+      });
+    }
+  </script>
+</body>
+</html>
