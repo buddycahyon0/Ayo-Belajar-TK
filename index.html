@@ -1433,6 +1433,7 @@ function home() {
         ${owlSVG()}
       </div>
       <h1>Belajar Seru<br>TK A</h1>
+      <div class="badge">✨ Sentra Readiness ✨</div>
     </div>
     <div class="tabs">
       <button class="tab ${SEM === 1 ? 'on' : ''}" onclick="setSem(1)">Semester 1</button>
@@ -1539,7 +1540,11 @@ function setupCanvas(ch, isArab = false) {
   const yPos = isArab ? 168 : 172;
   const txt = (g, m) => { g.font = F; g.textAlign = 'center'; g.textBaseline = 'middle'; g[m + 'Text'](ch, 160, yPos); };
   mx.fillStyle = '#000';
+  mx.strokeStyle = '#000';
+  mx.lineWidth = 18;
+  mx.lineJoin = 'round';
   txt(mx, 'fill');
+  txt(mx, 'stroke');
 
   CV = { c, x, ix, ink, msk, mx, ch, drawing: false, last: null, done: false };
   CV.guide = () => {
@@ -1561,7 +1566,7 @@ function setupCanvas(ch, isArab = false) {
   const seg = (a, b) => {
     [[x, '#ff6b6b'], [ix, '#000']].forEach(([g, col]) => {
       g.strokeStyle = col;
-      g.lineWidth = 26;
+      g.lineWidth = 22;
       g.lineCap = 'round';
       g.lineJoin = 'round';
       g.beginPath();
@@ -1606,7 +1611,7 @@ function cek() {
     if (a && b) O++;
   }
   const q = S.qs[S.i];
-  if (I > 0 && O / M >= 0.42 && O / I >= 0.50) {
+  if (I > 0 && O / M >= 0.35 && O / I >= 0.35) {
     playSfx('win');
     CV.done = true;
     if (S.first) S.ok++;
